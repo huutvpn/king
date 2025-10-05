@@ -1,5 +1,4 @@
 #!/bin/bash
-
 function send-log(){
 CHATID=$(grep -E "^#bot# " "/etc/bot/.bot.db" | cut -d ' ' -f 3)
 KEY=$(grep -E "^#bot# " "/etc/bot/.bot.db" | cut -d ' ' -f 2)
@@ -10,7 +9,7 @@ TEXT="
 <b>⚠️NOTIF QUOTA HABIS XRAY VMESS⚠️</b>
 <code>────────────────────</code>
 <code>Username  : </code><code>$user</code>
-<code>limit Quota : </code><code>$total2</code>
+<code>limit Quota: </code><code>$total2</code>
 <code>Usage     : </code><code>$total</code>
 <code>────────────────────</code>
 "
