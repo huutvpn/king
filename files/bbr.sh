@@ -1,8 +1,5 @@
 #!/bin/bash
-# Edition : Stable Edition V3.0
-# Auther  : Geo Project
-# (C) Copyright 2023
-# =========================================
+
 
 red='\e[1;31m'
 green='\e[0;32m'
@@ -12,13 +9,13 @@ NC='\e[0m'
 clear
 #if [[ -e /usr/local/sbin/bbr ]]; then
      echo ""
-#     echo -e "${green}TCP BBR Already Install${NC}"
+#     echo -e "${green}install BBR${NC}"
      echo ""
 #	 read -n1 -r -p "Press any key to continue..."
 #	 menu
 #else
 
-echo -e "Installing TCP BBR Mod By Lunatic"
+echo -e "Installing TCP BBR"
 echo -e "Please Wait BBR Installation Will Starting . . ."
 sleep 5
 clear
@@ -39,11 +36,11 @@ Check_And_Add_Line(){
 }
 
 Install_BBR(){
-echo -e "\e[32;1m================================\e[0m"
+echo -e "\e[32;1m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[32;1mInstalling TCP BBR...\e[0m"
 if [ -n "$(lsmod | grep bbr)" ];then
 echo -e "\e[0;32mSuccesfully Installed TCP BBR.\e[0m"
-echo -e "\e[32;1m================================\e[0m"
+echo -e "\e[32;1m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 return 1
 fi
 echo -e "\e[0;32mStarting To Install BBR...\e[0m"
@@ -57,11 +54,11 @@ if [ -n "$(sysctl net.ipv4.tcp_available_congestion_control | grep bbr)" ] && [ 
 else
 	echo -e "\e[1;31mFailed To Install BBR!\e[0m"
 fi
-echo -e "\e[32;1m================================\e[0m"
+echo -e "\e[32;1m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 }
 
 Optimize_Parameters(){
-echo -e "\e[32;1m================================\e[0m"
+echo -e "\e[32;1m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[32;1mOptimize Parameters...\e[0m"
 modprobe ip_conntrack
 Check_And_Add_Line "/etc/security/limits.conf" "* soft nofile 65535"
@@ -163,13 +160,13 @@ Check_And_Add_Line "/etc/systemd/system.conf" "DefaultTimeoutStopSec=30s"
 Check_And_Add_Line "/etc/systemd/system.conf" "DefaultLimitCORE=infinity"
 Check_And_Add_Line "/etc/systemd/system.conf" "DefaultLimitNOFILE=65535"
 echo -e "\e[0;32mSuccesfully Optimize Parameters.\e[0m"
-echo -e "\e[32;1m================================\e[0m"
+echo -e "\e[32;1m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 }
 Install_BBR
 Optimize_Parameters
 rm -f /root/bbr.sh >/dev/null 2>&1
-echo -e '\e[32;1m============================================================\e[0m'
-echo -e '\e[0;32m                  Installation Success!                     \e[0m'
-echo -e '\e[32;1m============================================================\e[0m'
+echo -e '\e[32;1m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m'
+echo -e '\e[0;32m       Installation Success!       \e[0m'
+echo -e '\e[32;1m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m'
 sleep 3
 #fi
